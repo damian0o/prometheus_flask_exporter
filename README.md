@@ -73,6 +73,22 @@ def long_running():
                    labels={'status': lambda r: r.status_code, 'path': lambda: request.path})
 def echo_status(status):
     return 'Status: %s' % status, status
+    
+if __name__ == "__main__":
+    app.run(debug=False)
+    ```
+    # !!! WARNING !!!
+    # DEBUG_METRICS should be set when using flask debug mode to add /metrics endpoint
+    # import os
+    # os.environ.setdefault('DEBUG_METRICS', 'true') # debug on
+    ## os.environ.setdefault('DEBUG_METRICS', 'false') # debug off
+    # app.run(debug=True)
+    
+```
+
+Save above example in hello.py and run command below
+```
+python hello.py
 ```
 
 ## Default metrics
